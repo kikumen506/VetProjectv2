@@ -1,5 +1,7 @@
 const db = require('../db')
 
+let bcrypt = require('bcrypt-nodejs')
+
 let getById = (id, done)=>{
     db.get().query('select * from veterinarios where id = ?', [id], (err, result)=>{
         console.log('ENTRA')
@@ -15,8 +17,11 @@ let getAll = (done) => {
     })
 }
 
-let create = ({nombreclinica, email, password}, done) =>{
-    db.get().query('insert into veterinarios value (null, ?,?,?)', [nombreclinica, email, password], (err,result)=>{
+let create = ({nombreclinica, nombreVet, telefono, email, password}, done) =>{
+
+    let cryptoPass = bcrypt(password).toString()
+
+    db.get().query('insert into veterinarios value (null, ?,?,?,?,?)', [nombreclinica, nombreVet, telefono, email, cryptoPass], (err,result)=>{
         if (err) return done (err)
         done (null,result)
     })
