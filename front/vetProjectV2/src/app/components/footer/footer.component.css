@@ -1,0 +1,36 @@
+footer{
+
+    bottom: 0;
+}
+.navbar{
+    background:#519657;
+    justify-content: center;
+    height: 60px;
+}
+.s-m{
+    position:relative;
+    
+}
+.s-m a{
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    background:  rgb(64, 126, 250);
+    color: white;
+    margin: 0 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    font-size: 20px;
+
+}
+
+.s-m a:hover{
+    background: rgb(211, 187, 8);
+    color: black;
+    text-decoration: none;
+    
+    
+}

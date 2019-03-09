@@ -1,0 +1,14 @@
+.card-body{
+    border:2px solid black;
+    border-radius:20px;
+}
+.container-fluid{
+    background: tomato;
+}
+.container{
+    background-color: white
+}
+
+.form-control{
+    text-align: center;
+}
