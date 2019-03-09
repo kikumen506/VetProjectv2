@@ -20,6 +20,7 @@ router.get('/:id', (req, res) => {
 // http://localhost:3000/api/regVet/new
 router.post('/new', (req, res) => {
     regVetModel.create(req.body, (err, result) => {
+        if(err) return console.log(err.message)
         res.json(result)
     })
 })

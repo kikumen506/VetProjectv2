@@ -1,6 +1,7 @@
 const db = require('../db')
 
-let bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcrypt')
+const saltRounds = 10;
 
 let getById = (id, done)=>{
     db.get().query('select * from veterinarios where id = ?', [id], (err, result)=>{
@@ -17,15 +18,29 @@ let getAll = (done) => {
     })
 }
 
-let create = ({nombreclinica, nombreVet, telefono, email, password}, done) =>{
+let create = ({nombreclinica, nombreVet, telefono, email, password,token}, done) =>{
 
-    let cryptoPass = bcrypt(password).toString()
-
-    db.get().query('insert into veterinarios value (null, ?,?,?,?,?)', [nombreclinica, nombreVet, telefono, email, cryptoPass], (err,result)=>{
-        if (err) return done (err)
-        done (null,result)
-    })
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+        // Store hash in your password DB.
+        db.get().query('insert into veterinarios values(null, ?,?,?,?,?, null)', [nombreclinica, nombreVet, telefono, email, hash,token], (err,result)=>{
+            if (err) return done (err)
+            done (null,result)
+            console.log(email)
+        })
+        console.log(hash)
+    });
+   
 }
+
+// let create = ({nombreclinica,nombreVet, telefono, email, password}, done) =>{
+
+//     
+
+//     db.get().query('insert into veterinarios values (null, ?,?,?,?,?)', [nombreclinica, nombreVet,telefono, email, password], (err,result)=>{
+//         if (err) return done (err)
+//         done (null,result)
+//     })
+// }
 
 let updateVet=(id, {nombreclinica, email, password}, done) => {
     db.get().query('update veterinarios set nombreclinica = ?, email = ?, password = ? where id = ?',[nombreclinica, email, password, id], (err,result) => {
