@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { RegVetComponent } from './components/reg-vet/reg-vet.component';
 import { LogVetComponent } from './components/log-vet/log-vet.component';
 import { VetHomeComponent } from './components/vet-home/vet-home.component';
+import { VetsService } from './services/vets/vets.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { VetHomeComponent } from './components/vet-home/vet-home.component';
     AppRoutingModule
   ],
   providers: [
-    
+    VetsService,
   ],
   bootstrap: [AppComponent]
 })
