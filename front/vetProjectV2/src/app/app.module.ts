@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { LogVetComponent } from './components/log-vet/log-vet.component';
 import { VetHomeComponent } from './components/vet-home/vet-home.component';
 
 import { VetsService } from './services/vets/vets.service';
+import { LogVetService } from './services/logvet/log-vet.service';
 
 @NgModule({
   declarations: [
@@ -28,10 +29,12 @@ import { VetsService } from './services/vets/vets.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     VetsService,
+    LogVetService
   ],
   bootstrap: [AppComponent]
 })

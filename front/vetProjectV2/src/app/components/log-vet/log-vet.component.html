@@ -1,12 +1,12 @@
-<div class="container col-md-4 ">
-  <form class="form-signin p-4 text-center">
-    <div class="card-body">
+<div class="container col-md-4">
+  <form class="form-signin p-4 text-center" [formGroup]="form">
+    <div class="card-body form-group">
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h3 class="h3 mb-3 font-weight-normal">Entra a tu clinica</h3>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      
+      <input formControlName="nombreVet" type="text" id="inputNombreVet" class="form-control" placeholder="nombreVet" required autofocus>
+      
+      <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
       <div class="checkbox mb-3">
         <label>
@@ -14,7 +14,7 @@
         </label>
       </div>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit" [routerLink]="['/vetHome']">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" [routerLink]="['/vetHome']" (click)="logVet()">Sign in</button>
     </div>
     
   </form>

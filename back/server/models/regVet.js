@@ -28,6 +28,7 @@ let create = ({nombreclinica, nombreVet, telefono, email, password,token}, done)
             console.log(email)
         })
         console.log(hash)
+        
     });
    
 }

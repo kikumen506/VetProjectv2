@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Veterinario } from '../../models/veterinario';
+import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 import { VetsService } from '../../services/vets/vets.service';
-import { Router } from '@angular/router'
+
 
 @Component({
   selector: 'app-reg-vet',
@@ -10,23 +12,29 @@ import { Router } from '@angular/router'
 })
 export class RegVetComponent implements OnInit {
 
-  veterinario: Veterinario = {
-
-    nombreclinica:'',
-    nombreVet:'',
-    telefono:'',
-    email:'',
-    password:'',
-
-  }
+  form: FormGroup
 
   constructor(private vetservice: VetsService, private router: Router) { }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      nombreclinica: new FormControl('', Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)),
+      nombreVet: new FormControl('', Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)),
+      telefono: new FormControl(''),
+      email: new FormControl('',Validators.pattern(/^((([!#$%&'*+\-/=?^_`{|}~\w])|([!#$%&'*+\-/=?^_`{|}~\w][!#$%&'*+\-/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/)),
+      password: new FormControl('', Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)),
+    })
   }
 
   saveVet(){
-    this.vetservice.createVet(this.veterinario).subscribe(
+    
+    this.vetservice.createVet(
+      this.form.value.nombreclinica,
+      this.form.value.nombreVet,
+      this.form.value.telefono,
+      this.form.value.email,
+      this.form.value.password
+      ).then(
       res => {
         console.log(res)
         this.router.navigate(['/logvet'])
