@@ -21,7 +21,7 @@ export class LogVetService {
 
   logOut(){
     localStorage.removeItem('token'),
-    this.router.navigate(['vetHome'])
+    this.router.navigate(['home'])
   }
 
   logged(){

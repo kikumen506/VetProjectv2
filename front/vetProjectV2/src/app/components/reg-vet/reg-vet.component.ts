@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { VetsService } from '../../services/vets/vets.service';
+import { LogVetService } from 'src/app/services/logvet/log-vet.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class RegVetComponent implements OnInit {
 
   form: FormGroup
 
-  constructor(private vetservice: VetsService, private router: Router) { }
+  constructor(private vetservice: VetsService, private router: Router, public logVetService: LogVetService) { }
 
   ngOnInit() {
     this.form = new FormGroup({

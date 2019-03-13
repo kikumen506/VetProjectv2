@@ -5,3 +5,6 @@
 .form-inline {
     height: 40px;
 }
+.dropdown-item{
+    cursor: pointer;
+}
