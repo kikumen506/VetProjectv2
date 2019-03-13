@@ -18,11 +18,11 @@ export class RegVetComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      nombreclinica: new FormControl('', Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)),
-      nombreVet: new FormControl('', Validators.pattern(/[a-zA-Z Á-Úá-ú][^1234567890]+$/)),
+      nombreclinica: new FormControl(''),
+      nombreVet: new FormControl(''),
       telefono: new FormControl(''),
-      email: new FormControl('',Validators.pattern(/^((([!#$%&'*+\-/=?^_`{|}~\w])|([!#$%&'*+\-/=?^_`{|}~\w][!#$%&'*+\-/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/)),
-      password: new FormControl('', Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)),
+      email: new FormControl('', [Validators.required, Validators.pattern(/^((([!#$%&'*+\-/=?^_`{|}~\w])|([!#$%&'*+\-/=?^_`{|}~\w][!#$%&'*+\-/=?^_`{|}~\.\w]{0,}[!#$%&'*+\-/=?^_`{|}~\w]))[@]\w+([-.]\w+)*\.\w+([-.]\w+)*)$/)]),
+      password: new FormControl('', [Validators.required, Validators.pattern(/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/)])
     })
   }
 

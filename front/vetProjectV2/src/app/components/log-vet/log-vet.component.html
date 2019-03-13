@@ -1,12 +1,12 @@
 <div class="container col-md-4">
-  <form class="form-signin p-4 text-center" [formGroup]="form">
+  <form class="form-signin p-4 text-center" [formGroup]="form" (ngSubmit)="logVet()">
     <div class="card-body form-group">
-      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <img class="mb-4" src="../../../assets/images/doggtor.jpg" alt="" width="72" height="72">
       <h3 class="h3 mb-3 font-weight-normal">Entra a tu clinica</h3>
       
-      <input formControlName="nombreVet" type="text" id="inputNombreVet" class="form-control" placeholder="nombreVet" required autofocus>
+      <input formControlName="nombreVet" type="text" id="inputNombreVet" class="form-control" placeholder="nombreVet" autofocus>
       
-      <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
 
       <div class="checkbox mb-3">
         <label>
@@ -14,7 +14,7 @@
         </label>
       </div>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit" [routerLink]="['/vetHome']" (click)="logVet()">Sign in</button>
+      <input class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid">
     </div>
     
   </form>

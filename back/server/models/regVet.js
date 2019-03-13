@@ -25,23 +25,15 @@ let create = ({nombreclinica, nombreVet, telefono, email, password,token}, done)
         db.get().query('insert into veterinarios values(null, ?,?,?,?,?, null)', [nombreclinica, nombreVet, telefono, email, hash,token], (err,result)=>{
             if (err) return done (err)
             done (null,result)
-            console.log(email)
+            console.log()
         })
-        console.log(hash)
+        console.log()
         
     });
    
 }
 
-// let create = ({nombreclinica,nombreVet, telefono, email, password}, done) =>{
 
-//     
-
-//     db.get().query('insert into veterinarios values (null, ?,?,?,?,?)', [nombreclinica, nombreVet,telefono, email, password], (err,result)=>{
-//         if (err) return done (err)
-//         done (null,result)
-//     })
-// }
 
 let updateVet=(id, {nombreclinica, email, password}, done) => {
     db.get().query('update veterinarios set nombreclinica = ?, email = ?, password = ? where id = ?',[nombreclinica, email, password, id], (err,result) => {

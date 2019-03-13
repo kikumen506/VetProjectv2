@@ -23,4 +23,14 @@ export class LogVetService {
     localStorage.removeItem('token'),
     this.router.navigate(['vetHome'])
   }
+
+  logged(){
+    if(localStorage.getItem('token')){
+      console.log()
+      return true
+    } else {
+
+      return false
+    }
+  }
 }

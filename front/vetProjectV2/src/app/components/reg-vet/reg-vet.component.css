@@ -2,13 +2,13 @@
     border:2px solid black;
     border-radius:20px;
 }
-.container-fluid{
-    background: tomato;
-}
+
 .container{
-    background-color: white
+    background-image:url(../../../assets/images/regvet3.jpg)
 }
 
 .form-control{
+    margin:20px 0;
     text-align: center;
+    background: rgba(255, 255, 255, .5);
 }

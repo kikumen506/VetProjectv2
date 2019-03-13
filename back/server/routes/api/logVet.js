@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
         if (err) return console.log(err.message)
 
         if (result.length == 0) {
-            return res.json({ error: 'usuario o contraseña incorreto'})
+            return res.json({ error: 'Contraseña o usuario incorrectos'})
         }
 
         if(result.length == 1) {
