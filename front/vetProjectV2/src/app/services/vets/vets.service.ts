@@ -10,17 +10,26 @@ export class VetsService {
 
   api = 'http://localhost:3000/api'
 
-  constructor(private http: HttpClient) { 
+  constructor(private httpClient: HttpClient) { 
 
   }
 
+  // registro clinica
+
   createVet(pnombreclinica, pnombreVet, ptelefono, pemail, ppassword){
-    return this.http.post(`${this.api}/regVet/new`,{
+    return this.httpClient.post(`${this.api}/regVet/new`,{
       nombreclinica: pnombreclinica,
       nombreVet: pnombreVet,
       telefono: ptelefono,
       email: pemail,
       password: ppassword
     }).toPromise()
+  }
+
+  // datos clinica
+  
+  getByToken(){
+    let tokenVar = localStorage.getItem('token')
+    return this.httpClient.post(`${this.api}/regvet`, {token: tokenVar}).toPromise()
   }
 }

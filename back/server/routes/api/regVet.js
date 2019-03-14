@@ -10,12 +10,18 @@ router.get('/', (req, res)=> {
         res.json(rows)
     })
 })
-// http://localhost:3000/api/regVet/:id
-router.get('/:id', (req, res) => {
-    regVetModel.getById(req.params.id, (err, rows) => {
-        res.json(rows)
+
+
+// http://localhost:3000/api/regVet/
+router.post('/', (req, res) => {
+    regVetModel.getByToken(req.body.token, (err, rows) => {
+        
+        if(err) return res.json(err.message)
+        res.json(rows[0])
     })
 })
+
+
 
 // http://localhost:3000/api/regVet/new
 router.post('/new', (req, res) => {
