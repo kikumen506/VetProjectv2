@@ -41,4 +41,10 @@ export class ClientesService {
   deleteClient(pid){
     return this.httpClient.post(`${this.api}/clientes/clientesVet/delete`, {id: pid}).toPromise()
   }
+
+  //actualizar cliente
+
+  updateClient(pid){
+    return this.httpClient.post(`${this.api}/clientes/clientesVet/edit`, {id: pid}).toPromise()
+  }
 }
