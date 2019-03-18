@@ -14,6 +14,19 @@ export class ClientesService {
 
   }
 
+  //crear cliente por clinica
+  newClient(pnombrecompleto, pdireccion, pdni, ppoblacion, ptelefonomovil, pemail){
+    return this.httpClient.post(`${this.api}/clientes/clientesVet/new`, {
+      nombrecompleto: pnombrecompleto,
+      direccion: pdireccion,
+      dni: pdni,
+      poblacion: ppoblacion,
+      telefonomovil: ptelefonomovil,
+      email: pemail,
+      token: localStorage.getItem('token')
+    }).toPromise()
+  }
+
 
   // obtener clientes clinica mediante el token de la clinica
   getByVet(){
@@ -26,9 +39,6 @@ export class ClientesService {
   // borrar clientes mediante token de clinica
 
   deleteClient(pid){
-
-    
-
     return this.httpClient.post(`${this.api}/clientes/clientesVet/delete`, {id: pid}).toPromise()
   }
 }

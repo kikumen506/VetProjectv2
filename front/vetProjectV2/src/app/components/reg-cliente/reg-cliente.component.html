@@ -1,0 +1,45 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-4 offset-md-2">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="saveClient()">
+            <h4>Registro de nuevo Cliente</h4>
+            
+              <input type="text" formControlName="nombrecompleto" placeholder="Nombre Completo" class="form-control" autofocus>
+
+              <input type="text" formControlName="direccion" placeholder="Direccion" class="form-control">
+
+              <input type="text" formControlName="dni"  placeholder="DNI" class="form-control">
+
+              <input type="text" formControlName="poblacion"  placeholder="Poblacion" class="form-control">
+
+              <input type="text" formControlName="telefonomovil"  placeholder="Telefono Movil" class="form-control">
+
+              <input type="text" formControlName="email" placeholder="E-mail" class="form-control">
+
+              
+            
+                  
+              
+                  
+              <input type="submit" class="btn btn-lg btn-success btn-block">
+            </form>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-body text-center">
+        
+        <h3>{{form?.controls['nombrecompleto'].value}}</h3>
+        <p>{{form?.controls['direccion'].value}}</p>
+        <p>{{form?.controls['dni'].value}}</p>
+        <p>{{form?.controls['poblacion'].value}}</p>
+        <p>{{form?.controls['telefonomovil'].value}}</p>
+        <p>{{form?.controls['email'].value}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  

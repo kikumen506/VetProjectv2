@@ -24,10 +24,10 @@ let getAll = (done) => {
 
 //añadir cliente al veterinario
 
-let create = ({nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas, fk_vet}, done) => {
-    
-    db.get().query('insert into clientes values (null, ?, ?, ?, ?, ?, ?, ?, ?)', [nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas, fk_vet], (err, result) => {
-        if(err) return console.log(err.message)
+let create = ( {nombrecompleto, direccion, dni, poblacion, telefonomovil, email, token}, done) => {
+    console.log(nombrecompleto, direccion, dni, poblacion, telefonomovil, email, token)
+    db.get().query('INSERT INTO clientes (nombrecompleto, direccion,dni,poblacion, telefonomovil, email, fk_vet) VALUES (?,?,?,?,?,?, (SELECT id FROM veterinarios WHERE token = ?))', [nombrecompleto, direccion, dni, poblacion, telefonomovil, email, token], (err, result) => {
+        if(err) return done(err)
         done (null,result)
     })
 }
