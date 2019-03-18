@@ -14,7 +14,7 @@ router.get('/', (req, res)=> {
 
 // http://localhost:3000/api/clientes/clientesVet
 router.post('/clientesVet',(req, res) => {
-    clientesModel.getByVet(req.body.fk_vet, (err, rows) => {
+    clientesModel.getByVet(req.body.token, (err, rows) => {
         
         if(err) return res.json(err.message)
         res.json(rows)
@@ -40,8 +40,13 @@ router.post('/clientesVet/edit/:id', (req, res)=>{
     console.log(req.body)
 })
 
-// http://localhost:3000/api/clientes/clientesVet/delete/:id
-router.get('/clientesVet/delete/:id')
+// http://localhost:3000/api/clientes/clientesVet/delete
+router.post('/clientesVet/delete', (req, res) => {
+    clientesModel.deleteClient(req.body.id, (err, rows) => {
+        if(err) return console.log(err.message)
+        res.json(rows)
+    })
+})
 
 
 module.exports = router;

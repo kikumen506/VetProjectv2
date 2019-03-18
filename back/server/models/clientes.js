@@ -4,8 +4,8 @@ const db = require('../db')
 
 // cliente por vet
 
-let getByVet = (fk_vet, done) => {
-    db.get().query('select * from clientes where fk_vet = ?', [fk_vet], (err, result)=>{
+let getByVet = (token, done) => {
+    db.get().query('select * from clientes where fk_vet = (SELECT id FROM veterinarios WHERE token = ?)', [token], (err, result)=>{
         if(err) return console.log(err.message)
         done (null,result)
     })
@@ -35,7 +35,7 @@ let create = ({nombrecompleto, direccion, dni, poblacion, telefonomovil, email, 
 // actualizar los datos de los clientes cada vet
 
 let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas}, fk_vet, done) => {
-    db.get().query('update clientes set nombrecompleto = ?, direccion = ?, dni = ?, poblacion = ?, telefonomovil = ?, email = ?, mascotas = ? where id = ?, fk_vet = ?',[id, nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas, fk_vet], (err,result) => {
+    db.get().query('update clientes set nombrecompleto = ?, direccion = ?, dni = ?, poblacion = ?, telefonomovil = ?, email = ?, mascotas = ? where id = ? and fk_vet = ?',[id, nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas, fk_vet], (err,result) => {
         if(err) return console.log(err.message)
         done (null,result)
     })
@@ -43,8 +43,8 @@ let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, ema
 
 
 // boorrar clientes por vet
-let deleteClient = (id, fk_vet, done) => {
-    db.get().query('delete from clientes where id= ?, fk_vet = ?', [id, fk_vet], (err, result) =>{
+let deleteClient = (id, done) => {
+    db.get().query('delete from clientes where id = ?', [id], (err, result) =>{
         if(err) return console.log(err.message)
         done (null,result)
     })

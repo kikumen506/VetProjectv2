@@ -5,21 +5,31 @@
 
 
 
-<div class="container-fluid">
-    <ul class="list-group mb-2">
-        <div class="card">
-            <div class="card-body row">
-                <span class="col-3">Maruja Caballa Pescadilla</span>
-                <span class="col-1">45862578-F</span>
-                <span class="col-2">direccion</span>
-                <span class="col-1">poblacion</span>
-                <span class="col-1">333444555</span>
-                <span class="col-3">salsadecarne@gmail.com</span>
-                <button class="col-1" > Mascotas
-                    
+<div class="row">
+    <div class="col-md-3 mb-3" *ngFor="let cliente of clientes">
+        <div class="card text-center">
+            <div class="card-header d-flex justify-content-between align-items-center">
+
+                {{cliente.nombrecompleto}}
+                
+                <button class="btn btn-success" >
+                    <i class="fas fa-user-edit"></i>   
                 </button>
+                <button class="btn btn-danger" (click)="deleteClient(cliente.id)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+                
+                
+            </div>
+            <img src="" class="card-img-top">
+            <div class="card-body">
+                <p>{{cliente.direccion}} - {{cliente.poblacion}}</p>
+                <p>{{cliente.email}}</p>
+                <p>{{cliente.mascotas}}</p>
+                <a class="btn btn-info btn-block">
+                    Ver Mascotas
+                </a>
             </div>
         </div>
-        
-    </ul>
+    </div>
 </div>
