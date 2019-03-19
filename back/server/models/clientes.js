@@ -74,19 +74,25 @@ let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, ema
     }
 
     if(email){
-        updateQuery += ' email = ?, '
+        updateQuery += ' email = ? '
         arr.push(email)
     }
 
-    db.get().query(updateQuery, arr, [id], (err,result) => {
+    if(id){
+        arr.push(id)
+    }
+
+    updateQuery += "where id = ?"
+
+    db.get().query(updateQuery, arr, (err,result) => {
         if(err) return console.log(err.message)
         done (null,result)
+        
     })
 
-    // db.get().query('update clientes set nombrecompleto = ?, direccion = ?, dni = ?, poblacion = ?, telefonomovil = ?, email = ?, mascotas = ? where id = ?',[id, nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas], (err,result) => {
-    //     if(err) return console.log(err.message)
-    //     done (null,result)
-    // })
+    console.log(updateQuery)
+    console.log(arr)
+
 }
 
 

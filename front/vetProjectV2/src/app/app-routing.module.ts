@@ -29,7 +29,7 @@ const routes: Routes = [
 
   {path:'reg-cliente', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
   {path:'edit-cliente/:id', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
-  {path:'mascotas', pathMatch:'full', component:MascotasComponent, canActivate:[LoginGuard]},
+  {path:'vethome/cliente/mascota/:id', pathMatch:'full', component:MascotasComponent, canActivate:[LoginGuard]},
 
   { path: '**', component:HomeComponent}
 

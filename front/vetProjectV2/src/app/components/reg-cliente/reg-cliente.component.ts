@@ -11,6 +11,7 @@ import { ClientesService } from 'src/app/services/clientes/clientes.service';
 export class RegClienteComponent implements OnInit {
 
   form: FormGroup
+  
   cliente: any = []
 
   edit:boolean = false

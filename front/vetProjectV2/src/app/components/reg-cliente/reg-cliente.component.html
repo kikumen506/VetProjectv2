@@ -3,7 +3,7 @@
     <div class="col-md-4 offset-md-2">
       <div class="card">
         <div class="card-body">
-          <form [formGroup]="form" (ngSubmit)="edit == true ? updateClient(cliente.id) : saveClient()">
+          <form [formGroup]="form"  *ngIf="form" (ngSubmit)="edit == true ? updateClient(cliente.id) : saveClient()">
               <!--  TODO: por lo visto hay un fallo con el formgroup, comentar tambien el fallo del update xq es de este formulario -->
               <div class="titulo">
                   <h4>Datos del Cliente</h4>

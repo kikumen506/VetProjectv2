@@ -47,7 +47,7 @@ router.get('/clientesVet/:id',(req, res) => {
 
 // http://localhost:3000/api/clientes/clientesVet/edit/:id     ----------------- editar cliente 
 router.post('/clientesVet/edit/:id', (req, res)=>{
-    clientesModel.update(req.params.id, (err, result) => {
+    clientesModel.update(req.params.id, req.body, (err, result) => {
         if(err) return console.log(err.message)
         res.json(result)   
     })
