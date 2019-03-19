@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 const mascotasModel = require('../../models/mascotas')
+const clientesModel = require('../../models/clientes')
 
 
 // http://localhost:3000/api/mascotas
@@ -14,7 +15,7 @@ router.get('/',(req, res) => {
 
 // http://localhost:3000/api/mascotas/mascotasCliente
 router.post('/mascotasCliente', (req, res) => {
-    mascotasModel.getByClient(req.body.fk_clientes, (err, rows) => {
+    mascotasModel.getByClient(req.body.id, (err, rows) => {
        
         if(err) return res.json(err.message)
         res.json(rows)

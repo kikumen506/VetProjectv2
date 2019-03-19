@@ -33,7 +33,7 @@ router.post('/clientesVet/new', (req, res) => {
     
 })
 
-// http://localhost:3000/api/clientes/clientesVet/edit      toggle boton nuevo cliente por editar cliente
+// http://localhost:3000/api/clientes/clientesVet/edit      
 router.post('/clientesVet/edit', (req, res)=>{
     clientesModel.update(req.body, (err, result) => {
         if(err) return console.log(err.message)
@@ -42,7 +42,7 @@ router.post('/clientesVet/edit', (req, res)=>{
     console.log(req.body)
 })
 
-// http://localhost:3000/api/clientes/clientesVet/delete    problema, si tiene mascotas¿?
+// http://localhost:3000/api/clientes/clientesVet/delete  
 router.post('/clientesVet/delete', (req, res) => {
     clientesModel.deleteClient(req.body.id, (err, rows) => {
         if(err) return console.log(err.message)

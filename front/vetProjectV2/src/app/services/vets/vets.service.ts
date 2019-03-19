@@ -10,7 +10,7 @@ export class VetsService {
 
   api = 'http://localhost:3000/api'
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(public httpClient: HttpClient) { 
 
   }
 

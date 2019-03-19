@@ -1,3 +1,35 @@
-<p>
-  mascotas works!
-</p>
+<div class="row m-0">
+   
+    <div class="col-md-3 mb-3" >
+        <div class="card text-center">
+            <div class="card-header d-flex justify-content-between align-items-center">
+
+                
+                
+                <div class="botonEdit">
+                    <button class="btn btn-success" >
+                        <i class="fas fa-user-edit"></i>   
+                    </button>
+                </div>
+                <div class="botonDelete">
+                    <button class="btn btn-danger" (click)="deleteClient(cliente.id)">
+                        <i class="far fa-trash-alt"></i>
+                    </button>
+                </div>
+                
+                
+            </div>
+            <img src="" class="card-img-top">
+            <div class="card-body">
+                <p> - </p>
+                <p></p>
+                <div class="botonPets">
+                    <button class="btn btn-info btn-block">
+                        Ver Mascotas
+                    </button>
+                </div> 
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,8 @@
 const db = require('../db')
 
 // mascotas por cliente
-let getByClient = (fk_clientes, done) => {
-    db.get().query('select * from mascotas where fk_clientes', [fk_clientes], (err, result) => {
+let getByClient = (id, done) => {
+    db.get().query('select * from mascotas where fk_clientes = (SELECT id FROM clientes WHERE id = ?)', [id], (err, result) => {
         if(err) return console.log(err.message)
         done (null, result)
     })
@@ -22,6 +22,7 @@ let create = ({chip, nombre, animal, raza, sexo, fechanacimiento,fk_clientes}, d
         if(err) return console.log(err.message)
         done (null,result)
     })
+    // TODO: ifdfjhsdf
 }
 // actualizar datos mascota
 let update = (id, {chip,nombre, animal, raza, sexo, fechanacimiento}, fk_clientes, done) => {

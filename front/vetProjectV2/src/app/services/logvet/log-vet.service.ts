@@ -11,7 +11,7 @@ export class LogVetService {
 
   api = 'http://localhost:3000/api/logvet'
 
-  constructor(private httpClient: HttpClient,public router: Router) { 
+  constructor(public httpClient: HttpClient,public router: Router) { 
 
   }
 

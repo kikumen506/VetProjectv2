@@ -10,7 +10,7 @@ export class ClientesService {
 
   
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(public httpClient: HttpClient) { 
 
   }
 
