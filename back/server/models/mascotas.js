@@ -22,7 +22,7 @@ let create = ({chip, nombre, animal, raza, sexo, fechanacimiento,fk_clientes}, d
         if(err) return console.log(err.message)
         done (null,result)
     })
-    // TODO: ifdfjhsdf
+    
 }
 // actualizar datos mascota
 let update = (id, {chip,nombre, animal, raza, sexo, fechanacimiento}, fk_clientes, done) => {

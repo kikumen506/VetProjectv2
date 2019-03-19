@@ -42,37 +42,7 @@ export class VetHomeComponent implements OnInit {
       },
       err => console.log(err)
     )
-    
-    
-    
-    
+ 
   }
-
-  deleteClient(id){
-    console.log(id)
-    this.clientesService.deleteClient(id).then(
-      res => {
-        console.log(res)
-        this.clientesService.getByVet().then(
-          res => {
-          console.log(res)
-      
-          this.clientes = res
-            
-          },
-          err => console.log(err)
-        )
-      },
-      err => console.log(err)
-    )
-  }
-
-  
-
-  
-  
-  
-
-  
 
 }

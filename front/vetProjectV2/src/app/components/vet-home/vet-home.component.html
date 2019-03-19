@@ -11,19 +11,7 @@
         <div class="card text-center">
             <div class="card-header d-flex justify-content-between align-items-center">
 
-                {{cliente.nombrecompleto}}
-                
-                <div class="botonEdit">
-                    <button class="btn btn-success" >
-                        <i class="fas fa-user-edit"></i>   
-                    </button>
-                </div>
-                <div class="botonDelete">
-                    <button class="btn btn-danger" (click)="deleteClient(cliente.id)">
-                        <i class="far fa-trash-alt"></i>
-                    </button>
-                </div>
-                
+                <strong>{{cliente.nombrecompleto}}</strong>               
                 
             </div>
             <img src="" class="card-img-top">

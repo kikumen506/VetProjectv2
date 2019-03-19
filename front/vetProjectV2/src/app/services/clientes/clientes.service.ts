@@ -49,7 +49,14 @@ export class ClientesService {
 
   //actualizar cliente
 
-  updateClient(id,updatedClient){
-    return this.httpClient.post(`${this.api}/clientes/clientesVet/edit/${id}`,updatedClient)
+  updateClient(id, pnombrecompleto, pdireccion, pdni, ppoblacion, ptelefonomovil, pemail){
+    return this.httpClient.post(`${this.api}/clientes/clientesVet/edit/${id}`, {
+      nombrecompleto: pnombrecompleto,
+      direccion: pdireccion,
+      dni: pdni,
+      poblacion: ppoblacion,
+      telefonomovil: ptelefonomovil,
+      email: pemail,
+    }).toPromise()
   }
 }

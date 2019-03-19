@@ -20,31 +20,34 @@
           <div class="row m-0">
   
             <div class="col-md-3 mb-3" *ngFor="let mascota of mascotas">
-                <div class="card text-center">
-                    <div class="card-header d-flex justify-content-between align-items-center">
+              <div class="card text-center">
+                <div class="card-header d-flex justify-content-between align-items-center">
         
                       {{mascota.nombre}}    
-                    </div>
-                    <img src="" class="card-img-top">
-                    <div class="card-body">
-                        <p>{{cliente.direccion}}</p>
-                        <p>{{cliente.email}}</p>
-
-                        <p>{{cliente.direccion}}</p>
-                        <p>{{cliente.direccion}}</p>
-                        <!-- <div class="botonPets" *ngFor="let mascota of mascotas"> -->
-                            <a class="btn btn-info btn-block" [routerLink]="['/vethome/cliente', cliente.id]">
-                                Informacion detallada
-                            </a>
-                        <!-- </div>  -->
-                        
-                    </div>
                 </div>
+                  <img src="" class="card-img-top">
+                  <div class="card-body">
+                    <p>{{mascota.animal}} - {{mascota.raza}}</p>
+                    <p>{{mascota.sexo}}</p>
+                    <a class="btn btn-info btn-block" [routerLink]="['/vethome/cliente', cliente.id]">
+                      Detalles
+                    </a>
+                  </div>
+              </div>
             </div>
           </div> 
         </div>
         <div class="card-footer text-muted">
-          
+            <div class="botonEdit">
+                <button class="btn btn-success" [routerLink]="['/edit-cliente', cliente.id]">
+                    <i class="fas fa-user-edit"></i>   
+                </button>
+            </div>
+            <div class="botonDelete">
+                <button class="btn btn-danger" (click)="deleteClient(cliente.id)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </div>
         </div>
     </div>
   </div>

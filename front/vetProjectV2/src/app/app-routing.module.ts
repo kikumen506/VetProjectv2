@@ -28,6 +28,7 @@ const routes: Routes = [
   {path:'vethome/cliente/:id', pathMatch:'full', component:ClienteComponent, canActivate:[LoginGuard]},
 
   {path:'reg-cliente', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
+  {path:'edit-cliente/:id', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
   {path:'mascotas', pathMatch:'full', component:MascotasComponent, canActivate:[LoginGuard]},
 
   { path: '**', component:HomeComponent}

@@ -43,11 +43,50 @@ let create = ( {nombrecompleto, direccion, dni, poblacion, telefonomovil, email,
 
 // actualizar los datos de los clientes cada vet
 
-let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas}, done) => {
-    db.get().query('update clientes set nombrecompleto = ?, direccion = ?, dni = ?, poblacion = ?, telefonomovil = ?, email = ?, mascotas = ? where id = ?',[id, nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas], (err,result) => {
+let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, email}, done) => {
+
+    let updateQuery = 'update clientes set '
+    let arr = []
+
+    if(nombrecompleto){
+        updateQuery += ' nombrecompleto = ?, '
+        arr.push(nombrecompleto)
+    }
+
+    if(direccion){
+        updateQuery += ' direccion = ?, '
+        arr.push(direccion)
+    }
+
+    if(dni){
+        updateQuery += ' dni = ?, '
+        arr.push(dni)
+    }
+
+    if(poblacion){
+        updateQuery += ' poblacion = ?, '
+        arr.push(poblacion)
+    }
+
+    if(telefonomovil){
+        updateQuery += ' telefonomovil = ?, '
+        arr.push(telefonomovil)
+    }
+
+    if(email){
+        updateQuery += ' email = ?, '
+        arr.push(email)
+    }
+
+    db.get().query(updateQuery, arr, [id], (err,result) => {
         if(err) return console.log(err.message)
         done (null,result)
     })
+
+    // db.get().query('update clientes set nombrecompleto = ?, direccion = ?, dni = ?, poblacion = ?, telefonomovil = ?, email = ?, mascotas = ? where id = ?',[id, nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas], (err,result) => {
+    //     if(err) return console.log(err.message)
+    //     done (null,result)
+    // })
 }
 
 

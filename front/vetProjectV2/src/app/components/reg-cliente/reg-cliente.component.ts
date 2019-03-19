@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ClientesService } from 'src/app/services/clientes/clientes.service';
 
@@ -12,34 +12,54 @@ export class RegClienteComponent implements OnInit {
 
   form: FormGroup
   cliente: any = []
-  constructor(public clientesService: ClientesService, private router: Router) { }
+
+  edit:boolean = false
+
+  constructor(public clientesService: ClientesService, private router: Router, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
 
-    this.clientesService.getByVet().then(
-      res => {
-        console.log(res)
-  
-        this.cliente = res
-        
-      },
-      err => console.log(err)
-    )
+    const params = this.activatedRoute.snapshot.params
+    if(params.id){
+      this.clientesService.getById(params.id).subscribe(
+        res =>{
+          console.log(res)
+          this.cliente = res
 
-    this.form = new FormGroup({
-      nombrecompleto: new FormControl(''),
-      direccion: new FormControl(''),
-      dni: new FormControl(''),
-      poblacion: new FormControl(''),
-      telefonomovil: new FormControl(''),
-      email: new FormControl(''),
+          this.edit = true
+
+          this.form = new FormGroup({
+            nombrecompleto: new FormControl(this.cliente.nombrecompleto),
+            direccion: new FormControl(''),
+            dni: new FormControl(''),
+            poblacion: new FormControl(''),
+            telefonomovil: new FormControl(''),
+            email: new FormControl(''),
       
       
-    })
+          })
+        },
+        err => console.log(err)
+      )
+      } else {
+
+      this.form = new FormGroup({
+        nombrecompleto: new FormControl(''),
+        direccion: new FormControl(''),
+        dni: new FormControl(''),
+        poblacion: new FormControl(''),
+        telefonomovil: new FormControl(''),
+        email: new FormControl(''),
+  
+  
+      })
+    }
+
+    
   }
 
 
-  saveClient(){
+  saveClient() {
 
     this.clientesService.newClient(
       this.form.value.nombrecompleto,
@@ -49,10 +69,31 @@ export class RegClienteComponent implements OnInit {
       this.form.value.telefonomovil,
       this.form.value.email,
     ).then(
-    res => {
-      console.log(res)
-      this.router.navigate(['/vethome'])
-    },
-    err => console.error(err)
-  )}
+      res => {
+        console.log(res)
+        this.router.navigate(['/vethome'])
+      },
+      err => console.error(err)
+    )
+  }
+
+
+  updateClient(id) {
+
+    this.clientesService.updateClient(
+      id,
+      this.form.value.nombrecompleto,
+      this.form.value.direccion,
+      this.form.value.dni,
+      this.form.value.poblacion,
+      this.form.value.telefonomovil,
+      this.form.value.email,
+    ).then(
+      res => {
+        console.log(res)
+        this.router.navigate(['/vethome'])
+      },
+      err => console.error(err)
+    )
+  }
 }

@@ -3,8 +3,11 @@
     <div class="col-md-4 offset-md-2">
       <div class="card">
         <div class="card-body">
-          <form [formGroup]="form" (ngSubmit)="saveClient()">
-            <h4>Registro de nuevo Cliente</h4>
+          <form [formGroup]="form" (ngSubmit)="edit == true ? updateClient(cliente.id) : saveClient()">
+              <!--  TODO: por lo visto hay un fallo con el formgroup, comentar tambien el fallo del update xq es de este formulario -->
+              <div class="titulo">
+                  <h4>Datos del Cliente</h4>
+              </div>
             
               <input type="text" formControlName="nombrecompleto" placeholder="Nombre Completo" class="form-control" autofocus>
 
@@ -16,13 +19,8 @@
 
               <input type="text" formControlName="telefonomovil"  placeholder="Telefono Movil" class="form-control">
 
-              <input type="text" formControlName="email" placeholder="E-mail" class="form-control">
+              <input type="text" formControlName="email" placeholder="E-mail" class="form-control">   
 
-              
-            
-                  
-              
-                  
               <input type="submit" class="btn btn-lg btn-success btn-block">
             </form>
           </div>

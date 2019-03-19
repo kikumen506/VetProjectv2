@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ClientesService } from 'src/app/services/clientes/clientes.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MascotasService } from 'src/app/services/mascotas/mascotas.service';
 
 @Component({
@@ -19,7 +19,8 @@ export class ClienteComponent implements OnInit {
     public httpClient: HttpClient, 
     public clientesService: ClientesService, 
     public activatedRoute:ActivatedRoute,
-    public mascotasService: MascotasService) { 
+    public mascotasService: MascotasService,
+    public router: Router) { 
 
   }
 
@@ -46,6 +47,26 @@ export class ClienteComponent implements OnInit {
       )
     }
 
+  }
+
+  deleteClient(id){
+    console.log(id)
+    this.clientesService.deleteClient(id).then(
+      res => {
+        console.log(res)
+        this.clientesService.getByVet().then(
+          res => {
+          console.log(res)
+      
+          this.cliente = res
+          this.router.navigate(['/vethome'])
+            
+          },
+          err => console.log(err)
+        )
+      },
+      err => console.log(err)
+    )
   }
   
 
