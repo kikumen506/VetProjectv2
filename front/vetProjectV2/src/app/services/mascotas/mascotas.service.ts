@@ -12,7 +12,7 @@ export class MascotasService {
 
   }
 
-  getByClient(pid){
-    return this.httpClient.post(`${this.api}/mascotas/mascotasCliente`, {id: pid}).toPromise()
+  getByClient(id){
+    return this.httpClient.get(`${this.api}/mascotas/mascotasCliente/${id}`)
   }
 }

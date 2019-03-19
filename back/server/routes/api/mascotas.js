@@ -13,9 +13,9 @@ router.get('/',(req, res) => {
     })
 })
 
-// http://localhost:3000/api/mascotas/mascotasCliente
-router.post('/mascotasCliente', (req, res) => {
-    mascotasModel.getByClient(req.body.id, (err, rows) => {
+// http://localhost:3000/api/mascotas/mascotasCliente/:id
+router.get('/mascotasCliente/:id', (req, res) => {
+    mascotasModel.getByClient(req.params.id, (err, rows) => {
        
         if(err) return res.json(err.message)
         res.json(rows)

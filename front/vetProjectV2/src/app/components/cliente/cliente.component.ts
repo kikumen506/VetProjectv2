@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ClientesService } from 'src/app/services/clientes/clientes.service';
+import { ActivatedRoute } from '@angular/router';
+import { MascotasService } from 'src/app/services/mascotas/mascotas.service';
 
 @Component({
   selector: 'app-cliente',
@@ -7,10 +11,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClienteComponent implements OnInit {
 
-  constructor() { }
+  cliente: any = []
+  mascotas: any = []
+
+
+  constructor(
+    public httpClient: HttpClient, 
+    public clientesService: ClientesService, 
+    public activatedRoute:ActivatedRoute,
+    public mascotasService: MascotasService) { 
+
+  }
 
   ngOnInit() {
-    
+
+    const params = this.activatedRoute.snapshot.params
+    if(params.id){
+      this.clientesService.getById(params.id).subscribe(
+        res =>{
+          console.log(res)
+          this.cliente = res
+        },
+        err => console.log(err)
+      )
+    }
+
+    if(params.id){
+      this.mascotasService.getByClient(params.id).subscribe(
+        res =>{
+          console.log(res)
+          this.mascotas = res
+        },
+        err => console.log(err)
+      )
+    }
+
   }
+  
 
 }

@@ -2,7 +2,7 @@ const db = require('../db')
 
 
 
-// cliente por vet
+//  cliente por vet
 
 let getByVet = (token, done) => {
     db.get().query('select * from clientes where fk_vet = (SELECT id FROM veterinarios WHERE token = ?)', [token], (err, result)=>{
@@ -11,8 +11,17 @@ let getByVet = (token, done) => {
     })
 }
 
+//   cliente por id
 
-//todos los clientes de los vet
+let getById = (id, done) => {
+    db.get().query('select * from clientes where id = ?', [parseInt(id)], (err, result) => {
+        if(err) return console.log(err.message)
+        done (null,result)
+    })
+}
+
+
+//    todos los clientes de los vet
 
 let getAll = (done) => {
     db.get().query('select * from clientes', (err, rows) => {
@@ -22,7 +31,7 @@ let getAll = (done) => {
 }
 
 
-//añadir cliente al veterinario
+//    añadir cliente al veterinario
 
 let create = ( {nombrecompleto, direccion, dni, poblacion, telefonomovil, email, token}, done) => {
     
@@ -34,8 +43,8 @@ let create = ( {nombrecompleto, direccion, dni, poblacion, telefonomovil, email,
 
 // actualizar los datos de los clientes cada vet
 
-let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas}, fk_vet, done) => {
-    db.get().query('update clientes set nombrecompleto = ?, direccion = ?, dni = ?, poblacion = ?, telefonomovil = ?, email = ?, mascotas = ? where id = ? and fk_vet = ?',[id, nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas, fk_vet], (err,result) => {
+let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas}, done) => {
+    db.get().query('update clientes set nombrecompleto = ?, direccion = ?, dni = ?, poblacion = ?, telefonomovil = ?, email = ?, mascotas = ? where id = ?',[id, nombrecompleto, direccion, dni, poblacion, telefonomovil, email, mascotas], (err,result) => {
         if(err) return console.log(err.message)
         done (null,result)
     })
@@ -52,6 +61,7 @@ let deleteClient = (id, done) => {
 
 module.exports = {
     getByVet: getByVet,
+    getById:getById,
     getAll: getAll,
     create: create,
     update: update,

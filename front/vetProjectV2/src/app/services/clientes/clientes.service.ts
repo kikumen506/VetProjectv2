@@ -36,6 +36,11 @@ export class ClientesService {
 
   }
 
+  //  obtener cliente
+  getById(id){
+    return this.httpClient.get(`${this.api}/clientes/clientesVet/${id}`)
+  }
+
   // borrar clientes mediante token de clinica
 
   deleteClient(pid){
@@ -44,7 +49,7 @@ export class ClientesService {
 
   //actualizar cliente
 
-  updateClient(pid){
-    return this.httpClient.post(`${this.api}/clientes/clientesVet/edit`, {id: pid}).toPromise()
+  updateClient(id,updatedClient){
+    return this.httpClient.post(`${this.api}/clientes/clientesVet/edit/${id}`,updatedClient)
   }
 }

@@ -31,8 +31,8 @@
                 <p>{{cliente.direccion}} - {{cliente.poblacion}}</p>
                 <p>{{cliente.email}}</p>
                 <!-- <div class="botonPets" *ngFor="let mascota of mascotas"> -->
-                    <a class="btn btn-info btn-block" >
-                        Ver Mascotas
+                    <a class="btn btn-info btn-block" [routerLink]="['/vethome/cliente', cliente.id]">
+                        Informacion detallada
                     </a>
                 <!-- </div>  -->
                 
