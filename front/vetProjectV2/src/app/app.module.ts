@@ -18,6 +18,7 @@ import { RegClienteComponent } from './components/reg-cliente/reg-cliente.compon
 import { MascotasComponent } from './components/mascotas/mascotas.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { RegMascotaComponent } from './components/reg-mascota/reg-mascota.component';
+import { EditMascotaComponent } from './components/edit-mascota/edit-mascota.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegMascotaComponent } from './components/reg-mascota/reg-mascota.compon
     RegClienteComponent,
     MascotasComponent,
     ClienteComponent,
-    RegMascotaComponent
+    RegMascotaComponent,
+    EditMascotaComponent
   ],
   imports: [
     BrowserModule,

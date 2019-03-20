@@ -28,6 +28,18 @@ export class MascotasService {
   //  borrar mascota
 
   deletePet(pid){
-    return this.httpClient.post(`${this.api}/delete`, {id: pid}).toPromise()
+    return this.httpClient.post(`${this.api}/mascotas/delete`, {id: pid}).toPromise()
+  }
+
+  createPet(pnombre, pchip, panimal, praza, psexo, pfechanacimiento, clientId){
+    return this.httpClient.post(`${this.api}/mascotas/new`, {
+      chip: pchip,
+      nombre: pnombre,
+      animal: panimal,
+      raza: praza,
+      sexo:psexo,
+      fechanacimiento: pfechanacimiento,
+      id: clientId
+    }).toPromise()
   }
 }

@@ -34,6 +34,7 @@ router.get('/mascota/:id',(req, res) => {
 
 // http://localhost:3000/api/mascotas/new         -------------------------------             nueva mascota
 router.post('/new', (req, res) => {
+    console.log(req.body)
     mascotasModel.create(req.body, (err, result) => {
         
         if(err) return res.json(err.message)

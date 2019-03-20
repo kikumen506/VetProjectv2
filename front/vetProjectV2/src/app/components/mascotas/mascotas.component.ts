@@ -11,10 +11,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MascotasComponent implements OnInit {
 
-  mascota: any = []
-
+  mascota: any = [];
+  cliente: any = [];
+  
   constructor(
     public mascotasService: MascotasService,
+    public clientesService: ClientesService,
     public httpClient: HttpClient,
     public activatedRoute: ActivatedRoute,
     public router: Router, ) { 
@@ -33,7 +35,15 @@ export class MascotasComponent implements OnInit {
       )
     }
 
-    
+    if (params.id) {
+      this.clientesService.getById(params.id).subscribe(
+        res => {
+          console.log(res)
+          this.cliente = res
+        },
+        err => console.log(err)
+      )
+    }
   }
 
   deletePet(id){

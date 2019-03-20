@@ -11,6 +11,8 @@ import { MascotasComponent } from './components/mascotas/mascotas.component';
 
 import { LoginGuard } from './guards/login/login.guard';
 import { NotLoggedGuard } from './guards/notLogged/not-logged.guard';
+import { RegMascotaComponent } from './components/reg-mascota/reg-mascota.component';
+import { EditMascotaComponent } from './components/edit-mascota/edit-mascota.component';
 
 
 
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path:'reg-cliente', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
   {path:'edit-cliente/:id', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
   {path:'vethome/cliente/mascota/:id', pathMatch:'full', component:MascotasComponent, canActivate:[LoginGuard]},
+  {path:'reg-mascota/:clientId', pathMatch:'full', component: RegMascotaComponent, canActivate:[LoginGuard]},
+  {path:'edit-mascota/:id', pathMatch:'full', component:EditMascotaComponent, canActivate:[LoginGuard]},
 
   { path: '**', component:HomeComponent}
 

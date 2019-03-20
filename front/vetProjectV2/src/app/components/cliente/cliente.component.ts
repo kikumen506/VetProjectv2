@@ -14,6 +14,7 @@ export class ClienteComponent implements OnInit {
   cliente: any = []
   mascotas: any = []
 
+  clientId: number
 
   constructor(
     public httpClient: HttpClient,
@@ -28,6 +29,7 @@ export class ClienteComponent implements OnInit {
 
     const params = this.activatedRoute.snapshot.params
     if (params.id) {
+      this.clientId =params.id
       this.clientesService.getById(params.id).subscribe(
         res => {
           console.log(res)

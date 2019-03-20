@@ -4,8 +4,8 @@
             <div class="card">
                 <div class="card-body">
                         
-                    <form [formGroup]="form" *ngIf="form"
-                        (ngSubmit)="edit == true ? updatePet(mascota.id) : savePet()">
+                    <form [formGroup]="form" 
+                        (ngSubmit)="updatePet(mascota.id)">
                         
                         <div class="titulo">
                             <h4>Datos de la Mascota</h4>

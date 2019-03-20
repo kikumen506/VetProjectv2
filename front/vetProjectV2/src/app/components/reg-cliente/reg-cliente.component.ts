@@ -31,11 +31,11 @@ export class RegClienteComponent implements OnInit {
 
           this.form = new FormGroup({
             nombrecompleto: new FormControl(this.cliente.nombrecompleto),
-            direccion: new FormControl(''),
-            dni: new FormControl(''),
-            poblacion: new FormControl(''),
-            telefonomovil: new FormControl(''),
-            email: new FormControl(''),
+            direccion: new FormControl(this.cliente.direccion),
+            dni: new FormControl(this.cliente.dni),
+            poblacion: new FormControl(this.cliente.poblacion),
+            telefonomovil: new FormControl(this.cliente.telefonomovil),
+            email: new FormControl(this.cliente.email),
       
       
           })

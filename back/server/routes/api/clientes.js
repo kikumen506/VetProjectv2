@@ -24,7 +24,7 @@ router.post('/clientesVet',(req, res) => {
 
 //  http://localhost:3000/api/clientes/clientesVet/new   -------------- registro nuevo cliente
 router.post('/clientesVet/new', (req, res) => {
-    
+    console.log(req.body)
     clientesModel.create(req.body, (err, result) => {
         
         if(err) return res.json(err.message)

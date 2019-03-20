@@ -26,8 +26,8 @@ let getAllPets = (done) => {
 }
 
 // nueva mascota al cliente
-let create = ({chip, nombre, animal, raza, sexo, fechanacimiento,fk_clientes}, done) => {
-    db.get().query('insert into mascotas values (null, ?, ?, ?, ?, ?, ?, ?)', [chip, nombre, animal, raza, sexo, fechanacimiento, fk_clientes], (err, result) => {
+let create = ({chip, nombre, animal, raza, sexo, fechanacimiento, id}, done) => {
+    db.get().query('insert into mascotas (chip, nombre, animal, raza, sexo, fechanacimiento, fk_clientes) values (?, ?, ?, ?, ?, ?, (SELECT id FROM clientes WHERE id = ?))', [chip, nombre, animal, raza, sexo, fechanacimiento, parseInt(id)], (err, result) => {
         if(err) return console.log(err.message)
         done (null,result)
     })
