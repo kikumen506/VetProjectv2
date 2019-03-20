@@ -8,7 +8,7 @@ let getByClient = (id, done) => {
     })
 }
 
-//   cliente por id
+//   mascota por id
 
 let getById = (id, done) => {
     db.get().query('select * from mascotas where id = ?', [parseInt(id)], (err, result) => {
@@ -42,8 +42,8 @@ let update = (id, {chip,nombre, animal, raza, sexo, fechanacimiento}, fk_cliente
 }
 
 // Borrar mascota
-let deletePet = (id, fk_clientes, done) => {
-    db.get().query('delete from mascotas where id = ? and fk_clientes = ?', [id, fk_clientes], (err,result) => {
+let deletePet = (id, done) => {
+    db.get().query('delete from mascotas where id = ?', [id], (err,result) => {
         if(err) return console.log(err.message)
         done (null,result)
     })

@@ -13,14 +13,21 @@ export class MascotasService {
   }
 
 
-  // mascotas por cliente
+  //  mascotas por cliente
 
   getByClient(id){
     return this.httpClient.get(`${this.api}/mascotas/mascotasCliente/${id}`)
   }
 
   //  obtener mascota
+
   getPet(id){
-    return this.httpClient.get(`${this.api}/mascotas/mascotasCliente/${id}`)
+    return this.httpClient.get(`${this.api}/mascotas/mascota/${id}`)
+  }
+
+  //  borrar mascota
+
+  deletePet(pid){
+    return this.httpClient.post(`${this.api}/delete`, {id: pid}).toPromise()
   }
 }

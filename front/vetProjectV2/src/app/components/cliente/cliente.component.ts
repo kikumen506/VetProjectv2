@@ -16,20 +16,20 @@ export class ClienteComponent implements OnInit {
 
 
   constructor(
-    public httpClient: HttpClient, 
-    public clientesService: ClientesService, 
+    public httpClient: HttpClient,
+    public clientesService: ClientesService,
     public activatedRoute: ActivatedRoute,
     public mascotasService: MascotasService,
-    public router: Router) { 
+    public router: Router) {
 
   }
 
   ngOnInit() {
 
     const params = this.activatedRoute.snapshot.params
-    if(params.id){
+    if (params.id) {
       this.clientesService.getById(params.id).subscribe(
-        res =>{
+        res => {
           console.log(res)
           this.cliente = res
         },
@@ -37,9 +37,9 @@ export class ClienteComponent implements OnInit {
       )
     }
 
-    if(params.id){
+    if (params.id) {
       this.mascotasService.getByClient(params.id).subscribe(
-        res =>{
+        res => {
           console.log(res)
           this.mascotas = res
         },
@@ -49,18 +49,18 @@ export class ClienteComponent implements OnInit {
 
   }
 
-  deleteClient(id){
+  deleteClient(id) {
     console.log(id)
     this.clientesService.deleteClient(id).then(
       res => {
         console.log(res)
         this.clientesService.getByVet().then(
           res => {
-          console.log(res)
-      
-          this.cliente = res
-          this.router.navigate(['/vethome'])
-            
+            console.log(res)
+
+            this.cliente = res
+            this.router.navigate(['/vethome'])
+
           },
           err => console.log(err)
         )
@@ -68,6 +68,6 @@ export class ClienteComponent implements OnInit {
       err => console.log(err)
     )
   }
-  
+
 
 }

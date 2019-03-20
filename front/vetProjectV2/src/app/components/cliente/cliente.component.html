@@ -1,54 +1,69 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="card col-12">
-        <div class="card-header text-center">
-          <h2>{{cliente.nombrecompleto}}</h2>
-        </div>
-        <div class="card-body">
-  
-          <h5 class="card-label"> Direccion: </h5>
-          <p class="card-text">{{cliente.direccion}} - {{cliente.poblacion}}</p>
-  
-          <h5 class="card-label"> DNI: </h5>
-          <p class="card-text">{{cliente.dni}}</p>
-  
-          <h5 class="card-label"> Telefono movil: </h5>
-          <p class="card-text">{{cliente.telefonomovil}}</p>
-  
-          <h5 class="card-label"> E-mail: </h5>
-          <a href="mailto:cliente.email" class="card-text">{{cliente.email}}</a >
-          <div class="row m-0">
-  
-            <div class="col-md-3 mb-3" *ngFor="let mascota of mascotas">
-              <div class="card text-center">
-                <div class="card-header d-flex justify-content-between align-items-center">
-        
-                      {{mascota.nombre}}    
+    <div class="row">
+        <div class="card col-12">
+            <div class="card-header text-center d-flex justify-content-between align-items-center">
+                <h2>{{cliente.nombrecompleto}}</h2>
+                <div class="botonNuevo">
+                    <button class="btn btn-success" [routerLink]="['/reg-cliente']">
+                        <i class="fas fa-user-edit"></i>
+                        Nuevo Cliente
+                    </button>
                 </div>
-                  <img src="" class="card-img-top">
-                  <div class="card-body">
-                    <p>{{mascota.animal}} - {{mascota.raza}}</p>
-                    <p>{{mascota.sexo}}</p>
-                    <a class="btn btn-info btn-block" [routerLink]="['/vethome/cliente/mascota', mascota.id]">
-                      Detalles
-                    </a>
-                  </div>
-              </div>
+                <div class="botonVolver">
+                    <button class="btn btn-info" [routerLink]="['/vethome']">
+                        <i class="fas fa-arrow-left"></i>
+                        Volver
+                    </button>
+                </div>
             </div>
-          </div> 
-        </div>
-        <div class="card-footer text-muted">
-            <div class="botonEdit">
-                <button class="btn btn-success" [routerLink]="['/edit-cliente', cliente.id]">
-                    <i class="fas fa-user-edit"></i>   
-                </button>
+            <div class="card-body">
+
+                <h5 class="card-label"> Direccion: </h5>
+                <p class="card-text">{{cliente.direccion}} - {{cliente.poblacion}}</p>
+
+                <h5 class="card-label"> DNI: </h5>
+                <p class="card-text">{{cliente.dni}}</p>
+
+                <h5 class="card-label"> Telefono movil: </h5>
+                <p class="card-text">{{cliente.telefonomovil}}</p>
+
+                <h5 class="card-label"> E-mail: </h5>
+                <a href="mailto:cliente.email" class="card-text">{{cliente.email}}</a>
+                <div class="row m-0">
+
+                    <div class="col-md-3 mb-3" *ngFor="let mascota of mascotas">
+                        <div class="card text-center">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+
+                                {{mascota.nombre}}
+                            </div>
+                            <img src="" class="card-img-top">
+                            <div class="card-body">
+                                <p>{{mascota.animal}} - {{mascota.raza}}</p>
+                                <p>{{mascota.sexo}}</p>
+                                <a class="btn btn-info btn-block"
+                                    [routerLink]="['/vethome/cliente/mascota', mascota.id]">
+                                    Detalles
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="botonDelete">
-                <button class="btn btn-danger" (click)="deleteClient(cliente.id)">
-                    <i class="far fa-trash-alt"></i>
-                </button>
+            <div class="card-footer d-flex justify-content-between align-items-center">
+                <div class="botonEdit">
+                    <button class="btn btn-success" [routerLink]="['/edit-cliente', cliente.id]">
+                        <i class="fas fa-edit"></i>
+                        Editar Datos Cliente
+                    </button>
+                </div>
+                <div class="botonDelete">
+                    <button class="btn btn-danger" (click)="deleteClient(cliente.id)">
+                        <i class="far fa-trash-alt"></i>
+                        Eliminar Datos del Cliente
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 </div>

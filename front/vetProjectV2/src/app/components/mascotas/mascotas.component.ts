@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientesService } from 'src/app/services/clientes/clientes.service';
 import { MascotasService } from 'src/app/services/mascotas/mascotas.service';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-mascotas',
@@ -16,19 +16,34 @@ export class MascotasComponent implements OnInit {
   constructor(
     public mascotasService: MascotasService,
     public httpClient: HttpClient,
-    public activatedRoute:ActivatedRoute,) { }
+    public activatedRoute: ActivatedRoute,
+    public router: Router, ) { 
+
+  }
 
   ngOnInit() {
     const params = this.activatedRoute.snapshot.params
-    if(params.id){
+    if (params.id) {
       this.mascotasService.getPet(params.id).subscribe(
-        res =>{
+        res => {
           console.log(res)
           this.mascota = res
         },
         err => console.log(err)
       )
     }
+
+    
+  }
+
+  deletePet(id){
+    this.mascotasService.deletePet(id).then(
+      res => {
+        this.mascota = res
+        this.router.navigate(['/vethome/cliente/:id'])
+      },
+      err => console.log(err)
+    )
   }
 
 }
