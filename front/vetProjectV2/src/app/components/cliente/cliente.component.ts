@@ -18,7 +18,7 @@ export class ClienteComponent implements OnInit {
   constructor(
     public httpClient: HttpClient, 
     public clientesService: ClientesService, 
-    public activatedRoute:ActivatedRoute,
+    public activatedRoute: ActivatedRoute,
     public mascotasService: MascotasService,
     public router: Router) { 
 

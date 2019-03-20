@@ -12,7 +12,15 @@ export class MascotasService {
 
   }
 
+
+  // mascotas por cliente
+
   getByClient(id){
+    return this.httpClient.get(`${this.api}/mascotas/mascotasCliente/${id}`)
+  }
+
+  //  obtener mascota
+  getPet(id){
     return this.httpClient.get(`${this.api}/mascotas/mascotasCliente/${id}`)
   }
 }

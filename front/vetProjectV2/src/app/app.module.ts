@@ -17,6 +17,7 @@ import { LogVetService } from './services/logvet/log-vet.service';
 import { RegClienteComponent } from './components/reg-cliente/reg-cliente.component';
 import { MascotasComponent } from './components/mascotas/mascotas.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { RegMascotaComponent } from './components/reg-mascota/reg-mascota.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ClienteComponent } from './components/cliente/cliente.component';
     VetHomeComponent,
     RegClienteComponent,
     MascotasComponent,
-    ClienteComponent
+    ClienteComponent,
+    RegMascotaComponent
   ],
   imports: [
     BrowserModule,

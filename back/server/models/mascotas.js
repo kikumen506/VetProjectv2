@@ -8,6 +8,15 @@ let getByClient = (id, done) => {
     })
 }
 
+//   cliente por id
+
+let getById = (id, done) => {
+    db.get().query('select * from mascotas where id = ?', [parseInt(id)], (err, result) => {
+        if(err) return console.log(err.message)
+        done (null,result)
+    })
+}
+
 // todas las mascotas
 let getAllPets = (done) => {
     db.get().query('select * from mascotas', (err, result) => {
@@ -41,6 +50,7 @@ let deletePet = (id, fk_clientes, done) => {
 }
 
 module.exports = {
+    getById: getById,
     getByClient: getByClient,
     getAllPets: getAllPets,
     create: create,

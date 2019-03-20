@@ -22,6 +22,16 @@ router.get('/mascotasCliente/:id', (req, res) => {
     })
 })
 
+//  http://localhost:3000/api/clientes/clientesVet/:id  -----------      detalle de mascota
+router.get('/mascotasCliente/:id',(req, res) => {
+    mascotasModel.getById(req.params.id, (err, rows) => {
+        
+        if(err) return res.json(err.message)
+        res.json(rows[0])
+    })
+    
+})
+
 // http://localhost:3000/api/mascotas/new
 router.post('/new', (req, res) => {
     mascotasModel.create(req.body, (err, result) => {
