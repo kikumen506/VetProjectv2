@@ -34,11 +34,54 @@ let create = ({chip, nombre, animal, raza, sexo, fechanacimiento, id}, done) => 
     
 }
 // actualizar datos mascota
-let update = (id, {chip,nombre, animal, raza, sexo, fechanacimiento}, fk_clientes, done) => {
-    db.get().query('update mascotas set chip =?, nombre = ?, animal = ?, raza = ?, sexo = ?,fechanacimiento = ? where id = ? and fk_clientes = ?', [id,chip, nombre, animal, raza, sexo, fechanacimiento, fk_clientes], (err, result) => {
+let update = (id, {chip, nombre, animal, raza, sexo, fechanacimiento}, done) => {
+    console.log(chip)
+    let updateQuery = 'update mascotas set '
+
+    let arr = []
+
+    if(chip != ""){
+        updateQuery += 'chip = ?, '
+        arr.push(chip)
+    }
+
+    if(nombre!= ""){
+        updateQuery += 'nombre = ?, '
+        arr.push(nombre)
+    }
+
+    if(animal!= ""){
+        updateQuery += 'animal = ?, '
+        arr.push(animal)
+    }
+
+    if(raza!= ""){
+        updateQuery += 'raza = ?, '
+        arr.push(raza)
+    }
+
+    if(sexo!= ""){
+        updateQuery += 'sexo = ?, '
+        arr.push(sexo)
+    }
+
+    if(fechanacimiento!= ""){
+        updateQuery += 'fechanacimiento = ?'
+        arr.push(fechanacimiento)
+    }
+
+    if(id){
+        arr.push(id)
+    }
+
+    updateQuery += " where id = ?"
+
+    db.get().query(updateQuery, arr, (err, result) => {
         if(err) return console.log(err.message)
         done (null,result)
     })
+    console.log(updateQuery)
+    console.log(arr)
 }
 
 // Borrar mascota

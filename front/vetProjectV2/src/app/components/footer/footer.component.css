@@ -1,9 +1,10 @@
 footer{
-
-    bottom: 0;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
 .navbar{
-    background:#519657;
+    background: rgb(60, 140, 228);
     justify-content: center;
     height: 60px;
 }
@@ -13,9 +14,9 @@ footer{
 }
 .s-m a{
     display: inline-flex;
-    width: 40px;
-    height: 40px;
-    background:  rgb(64, 126, 250);
+    width: 32px;
+    height: 32px;
+   
     color: white;
     margin: 0 10px;
     border: 1px solid white;
@@ -23,13 +24,14 @@ footer{
     justify-content: center;
     align-items: center;
     transition: 0.5s;
-    font-size: 20px;
+    font-size: 15px;
 
 }
 
 .s-m a:hover{
-    background: rgb(211, 187, 8);
-    color: black;
+    background-color: #394694;
+    
+    color: white;
     text-decoration: none;
     
     

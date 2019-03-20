@@ -13,6 +13,7 @@ import { LoginGuard } from './guards/login/login.guard';
 import { NotLoggedGuard } from './guards/notLogged/not-logged.guard';
 import { RegMascotaComponent } from './components/reg-mascota/reg-mascota.component';
 import { EditMascotaComponent } from './components/edit-mascota/edit-mascota.component';
+import { HeroUsuariosComponent } from './components/hero-usuarios/hero-usuarios.component';
 
 
 
@@ -22,18 +23,19 @@ const routes: Routes = [
 
   {path:'', pathMatch:'full', component:HomeComponent},
 
-  {path:'home', pathMatch:'full', component:HomeComponent},
-  {path:'regvet', pathMatch:'full', component:RegVetComponent},
-  {path:'logvet', pathMatch:'full', component:LogVetComponent, canActivate:[NotLoggedGuard]},
-  {path:'vethome', pathMatch:'full', component:VetHomeComponent, canActivate:[LoginGuard]},
+  {path:'home', component:HomeComponent},
+  {path:'regvet', component:RegVetComponent},
+  {path:'logvet', component:LogVetComponent, canActivate:[NotLoggedGuard]},
+  {path:'vethome', component:VetHomeComponent, canActivate:[LoginGuard]},
   
-  {path:'vethome/cliente/:id', pathMatch:'full', component:ClienteComponent, canActivate:[LoginGuard]},
+  {path:'vethome/cliente/:id', component:ClienteComponent, canActivate:[LoginGuard]},
 
-  {path:'reg-cliente', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
-  {path:'edit-cliente/:id', pathMatch:'full', component:RegClienteComponent, canActivate:[LoginGuard]},
-  {path:'vethome/cliente/mascota/:id', pathMatch:'full', component:MascotasComponent, canActivate:[LoginGuard]},
-  {path:'reg-mascota/:clientId', pathMatch:'full', component: RegMascotaComponent, canActivate:[LoginGuard]},
-  {path:'edit-mascota/:id', pathMatch:'full', component:EditMascotaComponent, canActivate:[LoginGuard]},
+  {path:'reg-cliente', component:RegClienteComponent, canActivate:[LoginGuard]},
+  {path:'edit-cliente/:id', component:RegClienteComponent, canActivate:[LoginGuard]},
+  {path:'vethome/cliente/mascota/:id', component:MascotasComponent, canActivate:[LoginGuard]},
+  {path:'reg-mascota/:clientId', component: RegMascotaComponent, canActivate:[LoginGuard]},
+  {path:'edit-mascota/:id', component:EditMascotaComponent, canActivate:[LoginGuard]},
+  {path:'index', component: HeroUsuariosComponent},
 
   { path: '**', component:HomeComponent}
 

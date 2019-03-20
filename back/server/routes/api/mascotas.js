@@ -52,31 +52,15 @@ router.post('/delete', (req, res) => {
 
 
 // http://localhost:3000/api/mascotas/edit/:id
-
-
-// router.post('/edit/:id', (req, res) => {
-//     mascotasModel.update(req.params.id, req.body, (err, result) => {
-//         if(err) return console.log(err.message)
-//         res.json(result)
-//     })
-//     console.log(req.body)
-// })
-
-
 router.post('/edit/:id', (req, res) => {
-    mascotasModel.update(req.params.id, {
-        chip: req.body.chip,
-        nombre: req.body.nombre,
-        raza: req.body.raza,
-        sexo: req.body.sexo,
-        fechanacimiento: req.body.fechanacimiento,
-        fk_clientes: req.body.fk_clientes
-    }, (err, result) => {
+    mascotasModel.update(req.params.id, req.body, (err, result) => {
         if(err) return console.log(err.message)
         res.json(result)
     })
     console.log(req.body)
 })
+
+
 
 
 

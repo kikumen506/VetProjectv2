@@ -19,6 +19,7 @@ import { MascotasComponent } from './components/mascotas/mascotas.component';
 import { ClienteComponent } from './components/cliente/cliente.component';
 import { RegMascotaComponent } from './components/reg-mascota/reg-mascota.component';
 import { EditMascotaComponent } from './components/edit-mascota/edit-mascota.component';
+import { HeroUsuariosComponent } from './components/hero-usuarios/hero-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EditMascotaComponent } from './components/edit-mascota/edit-mascota.com
     MascotasComponent,
     ClienteComponent,
     RegMascotaComponent,
-    EditMascotaComponent
+    EditMascotaComponent,
+    HeroUsuariosComponent
   ],
   imports: [
     BrowserModule,

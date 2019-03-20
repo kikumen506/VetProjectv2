@@ -4,7 +4,7 @@
             <div class="card-header text-center d-flex justify-content-between align-items-center">
                 <h2>{{mascota.nombre}}</h2>
                     <div class="botonEdit">
-                        <button class="btn btn-success" [routerLink]="['/reg-mascota']" >
+                        <button class="btn btn-success" [routerLink]="['/edit-mascota', mascota.id]" >
                             <i class="fas fa-paw"></i>  
                             Editar Mascota 
                         </button>

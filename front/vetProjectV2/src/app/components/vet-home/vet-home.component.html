@@ -1,5 +1,5 @@
-<div class="titulo">
-    <h3>{{clinica?.nombreclinica}}</h3>
+<div class="titulo mt-4 mb-4">
+    <h1>{{clinica?.nombreclinica}}</h1>
     <h4>Lista de Clientes</h4>
 </div>
 
@@ -19,7 +19,7 @@
                 <p>{{cliente.direccion}} - {{cliente.poblacion}}</p>
                 <p>{{cliente.email}}</p>
                 <!-- <div class="botonPets" *ngFor="let mascota of mascotas"> -->
-                    <a class="btn btn-info btn-block" [routerLink]="['/vethome/cliente', cliente.id]">
+                    <a class="btn btn-block" [routerLink]="['/vethome/cliente', cliente.id]">
                         Informacion detallada
                     </a>
                 <!-- </div>  -->

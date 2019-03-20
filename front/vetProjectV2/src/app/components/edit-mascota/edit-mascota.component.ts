@@ -37,7 +37,25 @@ export class EditMascotaComponent implements OnInit {
           })
         },
         err => console.log(err)
-      )
+    )
+  }
+
+  updatePet(id){
+    this.mascotasService.updatePet(
+      id,
+      this.form.value.chip,
+      this.form.value.nombre,
+      this.form.value.animal,
+      this.form.value.raza,
+      this.form.value.sexo,
+      this.form.value.fechanacimiento,
+    ).then(
+      res => {
+        console.log(res)
+        this.router.navigate(['/vethome/cliente/mascota/mascota.id'])
+      },
+      err => console.error(err)
+    )
   }
 
 }

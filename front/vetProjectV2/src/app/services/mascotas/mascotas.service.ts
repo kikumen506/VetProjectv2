@@ -31,6 +31,8 @@ export class MascotasService {
     return this.httpClient.post(`${this.api}/mascotas/delete`, {id: pid}).toPromise()
   }
 
+  //   generar nueva mascota ppara cada cliente
+
   createPet(pnombre, pchip, panimal, praza, psexo, pfechanacimiento, clientId){
     return this.httpClient.post(`${this.api}/mascotas/new`, {
       chip: pchip,
@@ -40,6 +42,19 @@ export class MascotasService {
       sexo:psexo,
       fechanacimiento: pfechanacimiento,
       id: clientId
+    }).toPromise()
+  }
+
+  //   actualizar datos de la mascota
+  updatePet(id, pchip, pnombre, panimal, praza, psexo, pfechanacimiento){
+    return this.httpClient.post(`${this.api}/mascotas/edit/${id}`, {
+      chip: pchip,
+      nombre: pnombre,
+      animal: panimal,
+      raza: praza,
+      sexo: psexo,
+      fechanacimiento: pfechanacimiento
+
     }).toPromise()
   }
 }

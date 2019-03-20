@@ -49,12 +49,12 @@ let update = (id, {nombrecompleto, direccion, dni, poblacion, telefonomovil, ema
     let arr = []
 
     if(nombrecompleto){
-        updateQuery += ' nombrecompleto = ?, '
+        updateQuery += 'nombrecompleto = ?, '
         arr.push(nombrecompleto)
     }
 
     if(direccion){
-        updateQuery += ' direccion = ?, '
+        updateQuery += 'direccion = ?, '
         arr.push(direccion)
     }
 
