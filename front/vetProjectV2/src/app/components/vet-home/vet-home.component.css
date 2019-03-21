@@ -4,8 +4,22 @@
 .titulo{
     text-align: center
 }
+h1{
+    color:#ededed;
+    
+}
+h4{
+    color:#ededed;
+
+}
 
 .btn{
     background-color: #394694;
     color: white
+}
+.back{
+    background: url(../../../assets/images/gatoPerro.jpg) no-repeat ;
+    background-size: cover;
+   
+    
 }

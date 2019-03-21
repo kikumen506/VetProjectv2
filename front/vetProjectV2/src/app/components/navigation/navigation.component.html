@@ -10,47 +10,41 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
 
-            <li class="nav-item active" *ngIf="!logvetservice.logged()">
-                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            <li class="nav-item ml-5" *ngIf="!logvetservice.logged()">
+                <a class="nav-link" href="#"> SignIn Dueños </a>
             </li>
 
-            <li class="nav-item dropdown" *ngIf="!logvetservice.logged()">
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Acceso
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Dueños</a>
-                    <a class="dropdown-item" [routerLink]="['/logvet']">Veterinarios</a>
-
-                </div>
-
+            <li class="nav-item" *ngIf="!logvetservice.logged()" [routerLink]="['/regvet']">
+                <a class="nav-link" href="#"> SignIn Veterinarios </a>
             </li>
-
-            <li class="nav-item dropdown" *ngIf="logvetservice.logged()">
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Clinica
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/vethome']">Inicio</a>
-                    <a class="dropdown-item" [routerLink]="['/reg-cliente']"> Nuevo Cliente </a>
-                    <a class="dropdown-item" [routerLink]=""> Pacientes </a>
-                    <a class="dropdown-item" (click)="logvetservice.logOut()"> Salir </a>
-                </div>
-
+            <li class="nav-item" *ngIf="logvetservice.logged()" [routerLink]="['/vethome']">
+                <a class="nav-link" > <i class="fas fa-clinic-medical"></i>Inicio </a>
+            </li>
+            <li class="nav-item" *ngIf="logvetservice.logged()" [routerLink]="['/reg-cliente']">
+                <a class="nav-link" ><i class="fas fa-user-edit"></i> Añadir Cliente </a>
+            </li>
+            <li class="nav-item" *ngIf="logvetservice.logged()">
+                <a class="nav-link" ><i class="fas fa-paw"></i> Pacientes </a>
+            </li>
+            <li class="nav-item" *ngIf="logvetservice.logged()">
+                <a class="nav-link" ><i class="fas fa-calendar-alt"></i> Citas </a>
             </li>
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <form class="form-inline active-dark-3 active-dark-4">
                 <i class="fas fa-search" aria-hidden="true"></i>
-                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Buscar"
                     aria-label="Search">
             </form>
         </form>
+        <ul class="navbar-nav mr-1">
+            <li class="nav-item" *ngIf="!logvetservice.logged()">
+                <a class="nav-link" href="#" [routerLink]="['/logvet']"> <strong>LogIn Vet</strong> </a>
+            </li>
+            <li class="nav-item" *ngIf="logvetservice.logged()" >
+                <a class="nav-link" (click)="logvetservice.logOut()" id="logOut"> Logout Vet </a>
+            </li>
+        </ul>
     </div>
 </nav>

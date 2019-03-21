@@ -8,3 +8,15 @@
 .dropdown-item{
     cursor: pointer;
 }
+
+a{
+    cursor: pointer;
+    font-size: 18px;
+    color: #ededed
+}
+
+
+
+#logOut{
+    color: #ededed
+}

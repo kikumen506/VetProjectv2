@@ -3,8 +3,8 @@
     <h1>Bienvenido a DogtorApp</h1>
     <p>Gestiona tu clinica veterinaria, o registrate como dueño de una mascota para poder acceder a todas las funcionalidades de la aplicacion.</p>
     <div class="links">
-      <a href="#" class="btn btn-sm" >Tengo mascotas</a>
-      <a href="#" class="btn btn-sm" [routerLink]="['/regvet']" *ngIf="!logvetservice.logged()">Soy veterinario </a>
+      <a href="#" class="btn btn-sm" id="regCliente"><strong>Tengo mascotas</strong></a>
+      <a href="#" class="btn btn-sm" id="regVet" [routerLink]="['/regvet']" *ngIf="!logvetservice.logged()"><strong>Soy veterinario</strong> </a>
     </div>
   </div>
 </div>
