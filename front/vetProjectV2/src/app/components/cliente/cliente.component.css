@@ -1,0 +1,19 @@
+.card-body1{
+    background: url(../../../assets/images/perromajo.jpg) no-repeat;
+    
+    background-size: cover;
+    background-position: center;
+    height: 85vh;
+}
+.foto{
+    background-color:#00000034;
+    height:85vh;
+}
+.card-footer{
+    background-color: #fff
+}
+
+#email{
+    text-decoration: none;
+    color: #fff
+}

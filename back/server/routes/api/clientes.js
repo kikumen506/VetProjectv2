@@ -9,6 +9,7 @@ router.get('/', (req, res)=> {
         
         if(err) return res.json(err.message)
         res.json(rows)
+        
     })
 })
 

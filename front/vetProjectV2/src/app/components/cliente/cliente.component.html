@@ -1,53 +1,63 @@
 <div class="container-fluid">
+
     <div class="row">
-        <div class="card col-12">
+
+        <div class="card col-12 p-0">
+
             <div class="card-header text-center d-flex">
+
                 <h2>{{cliente.nombrecompleto}}</h2>
+
                 <div class="botonNuevo">
+
                     <button class="btn btn-success ml-5 mr-5" [routerLink]="['/reg-mascota', clientId]">
                         <i class="fas fa-paw"></i>
                          Nueva Mascota
                     </button>
                 </div>
                 <div class="botonVolver">
-                    <button class="btn btn-info" [routerLink]="['/vethome']">
+                    <button class="btn btn-info mr-0" [routerLink]="['/vethome']">
                         <i class="fas fa-arrow-left"></i>
                         Volver
                     </button>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body1 ">
 
-                <h5 class="card-label"> Direccion: </h5>
-                <p class="card-text">{{cliente.direccion}} - {{cliente.poblacion}}</p>
-
-                <h5 class="card-label"> DNI: </h5>
-                <p class="card-text">{{cliente.dni}}</p>
-
-                <h5 class="card-label"> Telefono movil: </h5>
-                <p class="card-text">{{cliente.telefonomovil}}</p>
-
-                <h5 class="card-label"> E-mail: </h5>
-                <a href="mailto:cliente.email" class="card-text">{{cliente.email}}</a>
-                <div class="row mt-5">
-
-                    <div class="col-md-3 mb-3" *ngFor="let mascota of mascotas">
-                        <div class="card text-center">
-                            <div class="card-header d-flex justify-content-between align-items-center">
-
-                                {{mascota.nombre}}
-                            </div>
-                            <img src="" class="card-img-top">
-                            <div class="card-body">
-                                <p>{{mascota.animal}} - {{mascota.raza}}</p>
-                                <p>{{mascota.sexo}}</p>
-                                <a class="btn btn-info btn-block"
-                                    [routerLink]="['/vethome/cliente/mascota', mascota.id]">
-                                    Detalles
-                                </a>
+                <div class="foto mb-3">
+                        <h5 class="card-label ml-2 "> Direccion: </h5>
+                        <p class="card-text ml-3">{{cliente.direccion}} - {{cliente.poblacion}}</p>
+        
+                        <h5 class="card-label ml-2"> DNI: </h5>
+                        <p class="card-text ml-3">{{cliente.dni}}</p>
+        
+                        <h5 class="card-label ml-2"> Telefono movil: </h5>
+                        <p class="card-text ml-3">{{cliente.telefonomovil}}</p>
+        
+                        <h5 class="card-label ml-2"> E-mail: </h5>
+                        <a href="mailto:cliente.email ml-3" class="card-text ml-3"  id="email">{{cliente.email}}</a>
+        
+                        <div class="row mt-5">
+        
+                            <div class="col-md-3 mb-3 ml-3 mr-3" *ngFor="let mascota of mascotas">
+                                <div class="card text-center">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+        
+                                        {{mascota.nombre}}
+        
+                                    </div>
+                                    <img src="" class="card-img-top">
+                                    <div class="card-body ">
+                                        <p>{{mascota.animal}} - {{mascota.raza}}</p>
+                                        <p>{{mascota.sexo}}</p>
+                                        <a class="btn btn-info btn-block"
+                                            [routerLink]="['/vethome/',cliente.id,'mascota', mascota.id]">
+                                            Detalles
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
             <div class="card-footer d-flex justify-content-between align-items-center">

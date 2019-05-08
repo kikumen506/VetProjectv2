@@ -13,6 +13,7 @@ export class MascotasComponent implements OnInit {
 
   mascota: any = [];
   cliente: any = [];
+  clientId: number
   
   constructor(
     public mascotasService: MascotasService,
@@ -35,8 +36,9 @@ export class MascotasComponent implements OnInit {
       )
     }
 
-    if (params.id) {
-      this.clientesService.getById(params.id).subscribe(
+    if (params.clientId) {
+      this.clientId = params.id
+      this.clientesService.getById(params.clientId).subscribe(
         res => {
           console.log(res)
           this.cliente = res
@@ -47,10 +49,14 @@ export class MascotasComponent implements OnInit {
   }
 
   deletePet(id){
+
     this.mascotasService.deletePet(id).then(
+
       res => {
+
         this.mascota = res
-        this.router.navigate(['/vethome/cliente/:id'])
+
+        this.router.navigate(['/vethome/cliente/', this.cliente.id])
       },
       err => console.log(err)
     )

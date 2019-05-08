@@ -14,13 +14,13 @@
                 <a class="nav-link" href="#"> SignIn Dueños </a>
             </li>
 
-            <li class="nav-item" *ngIf="!logvetservice.logged()" [routerLink]="['/regvet']">
-                <a class="nav-link" href="#"> SignIn Veterinarios </a>
+            <li class="nav-item" *ngIf="!logvetservice.logged()" >
+                <a class="nav-link" [routerLink]="['/regvet']"> SignIn Veterinarios </a>
             </li>
-            <li class="nav-item" *ngIf="logvetservice.logged()" [routerLink]="['/vethome']">
+            <li class="nav-item" id="inicio" *ngIf="logvetservice.logged()" [routerLink]="['/vethome']">
                 <a class="nav-link" > <i class="fas fa-clinic-medical"></i>Inicio </a>
             </li>
-            <li class="nav-item" *ngIf="logvetservice.logged()" [routerLink]="['/reg-cliente']">
+            <li class="nav-item" id="inicio" *ngIf="logvetservice.logged()" [routerLink]="['/reg-cliente']">
                 <a class="nav-link" ><i class="fas fa-user-edit"></i> Añadir Cliente </a>
             </li>
             <li class="nav-item" *ngIf="logvetservice.logged()">

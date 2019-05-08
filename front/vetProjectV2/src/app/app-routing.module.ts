@@ -32,7 +32,7 @@ const routes: Routes = [
 
   {path:'reg-cliente', component:RegClienteComponent, canActivate:[LoginGuard]},
   {path:'edit-cliente/:id', component:RegClienteComponent, canActivate:[LoginGuard]},
-  {path:'vethome/cliente/mascota/:id', component:MascotasComponent, canActivate:[LoginGuard]},
+  {path:'vethome/:clientId/mascota/:id', component:MascotasComponent, canActivate:[LoginGuard]},
   {path:'reg-mascota/:clientId', component: RegMascotaComponent, canActivate:[LoginGuard]},
   {path:'edit-mascota/:id', component:EditMascotaComponent, canActivate:[LoginGuard]},
   {path:'index', component: HeroUsuariosComponent},

@@ -6,6 +6,7 @@
 }
 h1{
     color:#ededed;
+    text-shadow: rgb(0, 0, 0, .6)
     
 }
 h4{
@@ -20,6 +21,5 @@ h4{
 .back{
     background: url(../../../assets/images/gatoPerro.jpg) no-repeat ;
     background-size: cover;
-   
-    
+    height: 100vh;
 }

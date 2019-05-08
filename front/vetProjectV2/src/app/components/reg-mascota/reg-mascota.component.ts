@@ -28,31 +28,9 @@ export class RegMascotaComponent implements OnInit {
 
         console.log(params)
 
-        // this.clientesService.getById(body.id)
-
-
-
-
         if (params.clientId) {
             this.clientId = params.clientId
-            // this.mascotasService.getPet(params.id).subscribe(
-            //     res => {
-            //         console.log(res)
-            //         this.mascota = res
-
-            //         this.edit = true
-
-            //         this.form = new FormGroup({
-            //             nombre: new FormControl(this.mascota.nombre),
-            //             chip: new FormControl(this.mascota.chip),
-            //             animal: new FormControl(this.mascota.animal),
-            //             raza: new FormControl(this.mascota.raza),
-            //             sexo: new FormControl(this.mascota.sexo),
-            //             fechanacimiento: new FormControl(this.mascota.fechanacimiento)
-            //         })
-            //     },
-            //     err => console.log(err)
-            // )
+            
             this.form = new FormGroup({
 
                 nombre: new FormControl(''),

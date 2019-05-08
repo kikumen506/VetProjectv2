@@ -3,10 +3,10 @@
   <form novalidate class="form-signin p-4 text-center" [formGroup]="form" (ngSubmit)="saveVet()">
 
     <div class="card-body container col-md-4 form-group">
-      <img class="mb-4" src="../../../assets/images/doggtor.jpg" alt="" width="100" height="100">
+      
 
       <h3 class="mb-3 font-weight-normal">Registra tu clinica</h3>
-
+      
       <input formControlName="nombreclinica" type="text" id="inputNombreclinica" class="form-control" placeholder="Nombre de la clinica" autofocus>
 
       <input formControlName="nombreVet" type="text" id="inputNombreVet" class="form-control" placeholder="Nombre del Veterinario">
@@ -21,7 +21,7 @@
 
       <div class="checkbox mb-3">
         <label>
-          <a href="" [routerLink]="['/logvet']" > ¿Ya estas registrado? </a>
+          <a href="" [routerLink]="['/logvet']" class="link"> ¿Ya estas registrado? </a>
         </label>
       </div>
 

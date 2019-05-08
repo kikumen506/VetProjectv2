@@ -10,19 +10,19 @@
                         </button>
                     </div>
                     <div class="botonEdit">
-                        <button class="btn btn-info" [routerLink]="['/vethome']">
+                        <button class="btn btn-info" [routerLink]="['/vethome/cliente', cliente.id]">
                             <i class="fas fa-arrow-left"></i>  
                             volver 
                         </button>
                     </div>
                     <div class="botonDelete">
-                        <button class="btn btn-danger" (click)="deletePet(mascota.id)">
+                        <button class="btn btn-danger"  (click)="deletePet(mascota.id)">
                             <i class="far fa-trash-alt"></i>
                             Borrar Mascota
                         </button>
                     </div>
             </div>
-            <div class="card-body col-md-6">
+            <div class="card-body1 col-md-12">
     
                 <h5 class="card-label"> CHIP: </h5>
                 <p class="card-text">{{mascota.chip}}</p>
@@ -40,7 +40,7 @@
                 <p class="card-text">{{mascota.raza}}</p>
                 
             </div>
-            <div class="card-body col-md-6">
+            <div class="card-body2 col-md-6">
                 <h5>Historial</h5>   
             </div>
         </div>
