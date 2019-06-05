@@ -1,10 +1,16 @@
-<div class="landing-page">
-  <div class="page-content">
-    <h1>Bienvenido a DogtorApp</h1>
-    <p>Gestiona tu clinica veterinaria, o registrate como dueño de una mascota para poder acceder a todas las funcionalidades de la aplicacion.</p>
-    <div class="links">
-      <a href="#" class="btn btn-sm" id="regCliente"><strong>Tengo mascotas</strong></a>
-      <a href="#" class="btn btn-sm" id="regVet" [routerLink]="['/regvet']" *ngIf="!logvetservice.logged()"><strong>Soy veterinario</strong> </a>
+<div class="container-fluid">
+  <div class="section-top">
+    <div class="content">
+      <h1 class="mb-4">Bienvenido a DogtorApp</h1>
+      <p>Gestiona tu clinica veterinaria, o registrate como dueño de una mascota para poder acceder a todas las funcionalidades de la aplicacion.</p>
+      <div class="links">
+        <a href="#" class="btn btn-sm btn-ghost scale-up-ver-center mr-2" id="regCliente"><strong>Tengo mascotas</strong></a>
+        <a href="#" class="btn btn-sm btn-ghost scale-up-ver-center" id="regVet" [routerLink]="['/regvet']" *ngIf="!logvetservice.logged()"><strong>Soy veterinario</strong> </a>
+      </div>
     </div>
+    
+  </div>
+  <div class="container info">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, iure deleniti commodi esse, vel dolores odio nihil eius quasi laborum accusamus ratione. Aliquid atque similique quam, odit a dolor dignissimos!</p>
   </div>
 </div>
